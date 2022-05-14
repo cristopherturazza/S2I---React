@@ -1,1 +1,1 @@
-# S2I---React
+# S2I-React
