@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
-import '../css/App.css';
 import SearchBar from '../components/SearchBar';
 import Recipes from '../components/Recipes';
+import Header from '../components/Header';
 import { GlobalContext } from '../context/GlobalContext';         
 
 function Home() {
@@ -9,8 +9,9 @@ function Home() {
   const [recipes, setRecipes] = useState([]); // searched recipes
 
   return (  
-    <div className="Home">
+    <div className="flex flex-col">
       <GlobalContext.Provider value={{recipes, setRecipes}}>
+        <Header />
         <SearchBar />
         <Recipes />
       </GlobalContext.Provider>

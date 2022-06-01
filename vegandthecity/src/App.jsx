@@ -1,26 +1,20 @@
-import React from 'react';
-import './css/App.css';
-import Home from './pages/Home'; 
-import ShowRecipe from './pages/ShowRecipe'; 
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom";
-
+import React from "react";
+import Home from "./pages/Home";
+import ShowRecipe from "./pages/ShowRecipe";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
-    
-  <div className="App">
-
-  <Router>
-    <Routes>
-      <Route exact path="/" element={<Home/>}/>
-      <Route path="/recipe" element={<ShowRecipe/>}/>
-      <Route path="*" element={<NotFound/>} />
-    </Routes>
-  </Router>
-    
-  </div>
-  
-  )
+    <div className="flex flex-col bg-stone-50 antialiased  text-stone-900 h-screen">
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<Home />} />
+          <Route path="/recipe/:id" element={<ShowRecipe />} />
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Router>
+    </div>
+  );
 }
 
 export default App;

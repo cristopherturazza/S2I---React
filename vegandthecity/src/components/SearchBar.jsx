@@ -1,17 +1,15 @@
 import { useState, useContext, useEffect, useRef } from "react";
-import "../css/App.css";
 import axios from "axios";
-import { GlobalContext } from '../context/GlobalContext'; 
+import { GlobalContext } from "../context/GlobalContext";
 
 export default function SearchBar() {
-  
-  const {recipes, setRecipes} = useContext(GlobalContext);
+  const { recipes, setRecipes } = useContext(GlobalContext);
   const [input, setInput] = useState(""); // inputs from the user keyboard
   const [query, setQuery] = useState(""); // submitted keyword
 
   // skip the first useEffect rendering
 
-  const initialRender = useRef(true); 
+  const initialRender = useRef(true);
 
   // added to avoid problems when the user search the same word with differents options
   const [trigger, setTrigger] = useState(false); // trigger for fetching data
@@ -52,42 +50,52 @@ export default function SearchBar() {
   useEffect(() => {
     if (initialRender.current) {
       initialRender.current = false;
-    } 
-    else {
-    searchRecipes(cooktime, query, vegan);
+    } else {
+      searchRecipes(cooktime, query, vegan);
     }
-    
   }, [trigger]);
 
   return (
-    <div className="Search-Wrapper">
+    <div className="mt-12 p-8 flex flex-col">
       <form onSubmit={submitHandler}>
-        <input
-          type="text"
-          placeholder="keywords (pasta, salad, apple...)"
-          value={input}
-          onChange={searchInput}
-        />
-        <label>Vegan</label>
-        <input type="checkbox" value={vegan} onClick={() => setVegan(!vegan)} />
-        <label>Max Cooking Time</label>
-        <select>
-          <option value="15" onClick={() => setCooktime(15)}>
-            15
-          </option>
-          <option value="20" onClick={() => setCooktime(20)}>
-            20
-          </option>
-          <option value="30" onClick={() => setCooktime(30)}>
-            30
-          </option>
-          <option value="120" onClick={() => setCooktime(120)}>
-            All recipes
-          </option>
-        </select>
+        <div className="flex justify-center">
+          <input
+            type="text"
+            className="p-4 w-1/3 rounded-lg shadow-md outline-none focus:outline-green-200"
+            placeholder="type a keyword (salad, apple, etc...)"
+            value={input}
+            onChange={searchInput}
+          />
+        </div>
+        <div className="p-2 flex flex-row justify-center">
+          <div className="flex flex-col p-4 items-center">
+            <label>Vegan</label>
+            <input
+              type="checkbox"
+              className="mt-2 h-6 w-6 text-center accent-green-800"
+              value={vegan}
+              onClick={() => setVegan(!vegan)}
+            />
+          </div>
+          <div className="flex flex-col p-4 ">
+            <label>Max Cooking Time</label>
+            <select className="mt-2 rounded-md p-1 bg-stone-200  shadow-sm">
+              <option value="15" onClick={() => setCooktime(15)}>
+                15
+              </option>
+              <option value="20" onClick={() => setCooktime(20)}>
+                20
+              </option>
+              <option value="30" onClick={() => setCooktime(30)}>
+                30
+              </option>
+              <option value="120" defaultValue onClick={() => setCooktime(120)}>
+                All recipes
+              </option>
+            </select>
+          </div>
+        </div>
       </form>
-
-     
     </div>
   );
 }

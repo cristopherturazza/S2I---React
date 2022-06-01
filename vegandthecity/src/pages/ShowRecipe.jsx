@@ -1,10 +1,11 @@
-import React, {useState} from 'react';
-import '../css/App.css';
+import RecipeDetails from "../components/RecipeDetails";
+import Header from "../components/Header";
 
-
-export default function ShowRecipe (){
-    return (
-        <p> Recipe description page</p>
-
-    )
+export default function ShowRecipe() {
+  return (
+    <div>
+      <Header />
+      <RecipeDetails />
+    </div>
+  );
 }
