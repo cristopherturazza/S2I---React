@@ -23,8 +23,7 @@ export default function RecipeDetails() {
 
   useEffect(() => {
     fetchRecipe(id);
-    console.log(recipe);
-  });
+  }, []);
 
   return (
     <div className="Recipe">

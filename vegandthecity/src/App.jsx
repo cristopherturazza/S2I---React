@@ -1,18 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import Home from "./pages/Home";
 import ShowRecipe from "./pages/ShowRecipe";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import ShowSearched from "./pages/ShowSearched";
+import { GlobalContext } from "./context/GlobalContext";
 
 function App() {
+  const [recipes, setRecipes] = useState([]); // showed recipes
+
   return (
     <div className="flex flex-col bg-stone-50 antialiased  text-stone-900 h-screen">
-      <Router>
-        <Routes>
-          <Route exact path="/" element={<Home />} />
-          <Route path="/recipe/:id" element={<ShowRecipe />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </Router>
+      <GlobalContext.Provider value={{ recipes, setRecipes }}>
+        <Router>
+          <Routes>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/search/:query" element={<ShowSearched />} />
+            <Route path="/search/recipe/:id" element={<ShowRecipe />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </Router>
+      </GlobalContext.Provider>
     </div>
   );
 }

@@ -1,22 +1,18 @@
-import React, {useState} from 'react';
-import SearchBar from '../components/SearchBar';
-import Recipes from '../components/Recipes';
-import Header from '../components/Header';
-import { GlobalContext } from '../context/GlobalContext';         
+import React, { useState } from "react";
+import SearchBar from "../components/SearchBar";
+import Recipes from "../components/Recipes";
+import Header from "../components/Header";
+
+import PopularRecipes from "../components/PopularRecipes";
 
 function Home() {
-
-  const [recipes, setRecipes] = useState([]); // searched recipes
-
-  return (  
+  return (
     <div className="flex flex-col">
-      <GlobalContext.Provider value={{recipes, setRecipes}}>
-        <Header />
-        <SearchBar />
-        <Recipes />
-      </GlobalContext.Provider>
-  </div>
-  )
+      <Header />
+      <SearchBar />
+      <PopularRecipes />
+    </div>
+  );
 }
 
 export default Home;
