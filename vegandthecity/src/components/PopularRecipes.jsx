@@ -13,7 +13,7 @@ export default function PopularRecipes() {
     setIsLoading(true);
     try {
       const response = await axios.get(
-        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=12&tags=vegetarian`
+        `https://api.spoonacular.com/recipes/random?apiKey=${process.env.REACT_APP_API_KEY}&number=6&tags=vegetarian`
       );
       const data = response.data;
       setPopular(data.recipes);
@@ -37,7 +37,7 @@ export default function PopularRecipes() {
       {isLoading === false && (
         <>
           <div className="flex justify-center shadow-md">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-violet-900 to-violet-600 w-full p-6 text-center text-stone-50">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#534666] via-[#534666] to-[#DC8665] w-full p-6 text-center text-stone-50">
               Staff Picks
             </h1>
           </div>

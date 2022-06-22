@@ -26,10 +26,21 @@ export default function RecipeDetails() {
   }, []);
 
   return (
-    <div className="Recipe">
-      <h1>{recipe.title}</h1>
-      <img src={recipe.image} alt={recipe.title} />
-      <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+    <div className="recipe-container">
+      <h1 className="recipe-title">{recipe.title}</h1>
+      <img
+        className="w-5/12 ml-20 rounded-xl shadow-md"
+        src={recipe.image}
+        alt={recipe.title}
+      />
+      <div className="p-8 pb-4 ml-12 w-10/12">
+        <h2 className="recipe-subtitle"> Summary </h2>
+        <p dangerouslySetInnerHTML={{ __html: recipe.summary }}></p>
+      </div>
+      <div className="p-8 pt-0 ml-12 w-10/12">
+        <h2 className="recipe-subtitle"> Instructions </h2>
+        <p dangerouslySetInnerHTML={{ __html: recipe.instructions }}></p>
+      </div>
     </div>
   );
 }

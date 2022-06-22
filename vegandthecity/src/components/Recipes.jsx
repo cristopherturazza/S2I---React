@@ -1,18 +1,19 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { GlobalContext } from "../context/GlobalContext";
-import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import SearchFilters from "./Filters";
 import Card from "./Card";
 
 export default function Recipes() {
   const { recipes, setRecipes } = useContext(GlobalContext);
-  const [searchAPI, setSearchAPI] = useState([]); // download from API memory
-  const [isLoading, setIsLoading] = useState(true);
+  const [searchAPI, setSearchAPI] = useState([]); // download API memory
+  const [isLoading, setIsLoading] = useState(true); // loader
 
   const [diet, setDiet] = useState(false); // vegan filter on/off
   const [cooktime, setCooktime] = useState(120); // max cooking filter option
+  const [dairy, setDairy] = useState(false); // dairy free filter option
+  const [gluten, setGluten] = useState(false); // gluten free filter option
 
   const { query } = useParams();
 
@@ -51,23 +52,53 @@ export default function Recipes() {
   const handleTime = (time) => {
     setCooktime(time);
   };
+  const handleDairy = (dairy) => {
+    setDairy(dairy);
+  };
+  const handleGluten = (gluten) => {
+    setGluten(gluten);
+  };
+
+  const applyFilters = () => {
+    let newRecipes = searchAPI;
+
+    if (diet) {
+      newRecipes = newRecipes.filter((recipe) => recipe.vegan === true);
+    }
+    if (cooktime <= 120) {
+      newRecipes = newRecipes.filter(
+        (recipe) => recipe.readyInMinutes <= cooktime
+      );
+    }
+    if (dairy) {
+      newRecipes = newRecipes.filter((recipe) => recipe.dairyFree === true);
+    }
+    if (gluten) {
+      newRecipes = newRecipes.filter((recipe) => recipe.glutenFree === true);
+    }
+
+    setRecipes(newRecipes);
+  };
 
   useEffect(() => {
     searchRecipes(query);
   }, [query]);
 
   useEffect(() => {
-    const newRecipes = searchAPI.filter(
-      (data) => data.vegan === diet && data.readyInMinutes <= cooktime
-    );
-    setRecipes(newRecipes);
-  }, [diet, cooktime]);
+    applyFilters();
+  }, [diet, cooktime, dairy, gluten]);
 
   return (
     <div className="flex flex-col w-full justify-center shadow-lg">
-      <h1 className="text-3xl font-bold bg-gradient-to-r from-violet-900 to-violet-800 w-full p-6 text-center text-stone-50">
+      <h1 className="text-3xl font-bold bg-gradient-to-r from-[#534666] via-[#534666] to-[#DC8665] w-full p-6 text-center text-stone-50">
         Search Results
       </h1>
+      <SearchFilters
+        handleTime={handleTime}
+        handleDiet={handleDiet}
+        handleDairy={handleDairy}
+        handleGluten={handleGluten}
+      />
       {recipes.length === 0 && isLoading === false && (
         <div className="flex w-full justify-center font-medium h-screen items-center">
           <p>No recipes founded.</p>
@@ -80,7 +111,6 @@ export default function Recipes() {
       )}
       {recipes.length > 0 && (
         <>
-          <SearchFilters handleTime={handleTime} handleDiet={handleDiet} />
           <div className="justify-evenly flex flex-row flex-wrap p-8">
             {recipes.map((recipe) => (
               <Card

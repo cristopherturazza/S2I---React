@@ -32,7 +32,7 @@ export default function SearchBar() {
         <div className="flex justify-center">
           <input
             type="text"
-            className="p-4 w-1/3 rounded-xl shadow-md outline-none focus:shadow-green-800/30 focus:shadow-xl"
+            className="p-4 w-1/3 rounded-xl shadow-md outline-none focus:shadow-[#1380864D] focus:shadow-xl"
             placeholder="type a keyword (salad, apple, etc...)"
             value={input}
             onChange={searchInput}
