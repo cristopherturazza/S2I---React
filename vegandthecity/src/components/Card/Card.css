@@ -1,0 +1,35 @@
+.card-frame {
+  @apply bg-stone-100 w-96 mx-2 my-10 shadow-md rounded-xl;
+}
+
+.card-image {
+  @apply h-64 w-full object-fill rounded-t-xl;
+}
+
+.card-text-container {
+  @apply flex flex-col justify-start h-28;
+}
+
+.card-recipe-title {
+  @apply truncate px-6 pt-4 text-base font-extrabold text-[#534666];
+}
+
+.card-recipe-details {
+  @apply flex flex-row px-6 pt-2 text-sm font-medium text-[#534666];
+}
+
+.card-recipe-icons {
+  @apply pr-2 flex items-center drop-shadow-md;
+}
+
+.card-divider {
+  @apply border-b w-3/4;
+}
+
+.card-button-container {
+  @apply flex justify-center items-center m-4 h-20;
+}
+
+.card-button {
+  @apply bg-[#138086] hover:bg-[#DC8665] px-6 py-4 font-medium text-stone-50 rounded-xl shadow-md hover:shadow-lg;
+}

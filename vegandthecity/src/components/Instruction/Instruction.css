@@ -1,0 +1,15 @@
+.instruction-index {
+  @apply font-black text-5xl;
+}
+
+.instruction-text {
+  @apply ml-8 font-normal text-xl w-10/12;
+}
+
+.instruction-box {
+  @apply flex flex-row  px-28 py-8 items-center;
+}
+
+.dark {
+  @apply bg-gradient-to-bl from-[#534666] to-[#2b2436] text-white;
+}

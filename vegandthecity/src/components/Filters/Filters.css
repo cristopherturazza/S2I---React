@@ -1,0 +1,15 @@
+.filters-container {
+  @apply p-2 flex flex-row justify-evenly shadow-md;
+}
+
+.single-filter-container {
+  @apply flex flex-col p-4 items-center;
+}
+
+.filter-checkbox {
+  @apply mt-2 h-6 w-6 text-center accent-[#138086];
+}
+
+.filter-time-slider {
+  @apply w-full h-2 mt-4 p-1 shadow-md bg-stone-200 accent-[#138086] rounded-md appearance-none cursor-pointer;
+}

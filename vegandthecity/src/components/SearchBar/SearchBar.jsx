@@ -1,11 +1,12 @@
 import { useState, useContext, useEffect, useRef } from "react";
 import { useNavigate } from "react-router-dom";
-import { GlobalContext } from "../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
+import { BiSearch } from "react-icons/bi";
 
 export default function SearchBar() {
   const { recipes, setRecipes } = useContext(GlobalContext);
   const [input, setInput] = useState(""); // inputs from the user keyboard
-
+  const [light, setLight] = useState("searchbar");
   // added to avoid problems when the user search the same word with differents options
   const [trigger, setTrigger] = useState(false); // trigger for fetching data
 
@@ -27,18 +28,23 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="m-12 p-8 flex flex-col">
-      <form onSubmit={submitHandler}>
-        <div className="flex justify-center">
+    <div className="searchbar-container">
+      <div className={light}>
+        <span className="search-icon" onClick={submitHandler}>
+          <BiSearch />
+        </span>
+        <form onSubmit={submitHandler}>
           <input
             type="text"
-            className="p-4 w-1/3 rounded-xl shadow-md outline-none focus:shadow-[#1380864D] focus:shadow-xl"
+            size="30"
             placeholder="type a keyword (salad, apple, etc...)"
             value={input}
             onChange={searchInput}
+            onFocus={(e) => setLight("searchbar-light")}
+            onBlur={(e) => setLight("searchbar")}
           />
-        </div>
-      </form>
+        </form>
+      </div>
     </div>
   );
 }

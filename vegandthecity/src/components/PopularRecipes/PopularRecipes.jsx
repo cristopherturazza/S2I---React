@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
-import Card from "./Card";
+import Card from "../Card/Card";
 
 export default function PopularRecipes() {
   const [popular, setPopular] = useState([]);
@@ -30,18 +30,16 @@ export default function PopularRecipes() {
   return (
     <>
       {isLoading === true && (
-        <div className="flex w-full justify-center mt-32">
+        <div className="search-loader">
           <p>Loading...</p>
         </div>
       )}
       {isLoading === false && (
         <>
-          <div className="flex justify-center shadow-md">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-[#534666] via-[#534666] to-[#DC8665] w-full p-6 text-center text-stone-50">
-              Staff Picks
-            </h1>
+          <div className="recipes-container">
+            <h1 className="recipes-searched-title">Staff Picks</h1>
           </div>
-          <div className="justify-evenly flex flex-row flex-wrap p-8">
+          <div className="recipes-searched">
             {popular.map((recipe) => (
               <Card
                 key={recipe.id}

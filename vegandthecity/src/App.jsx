@@ -9,7 +9,7 @@ function App() {
   const [recipes, setRecipes] = useState([]); // showed recipes
 
   return (
-    <div className="flex flex-col antialiased  text-stone-900 h-screen">
+    <div className="flex flex-col antialiased text-stone-900 h-screen">
       <GlobalContext.Provider value={{ recipes, setRecipes }}>
         <Router>
           <Routes>

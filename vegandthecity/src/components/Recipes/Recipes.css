@@ -1,0 +1,15 @@
+.search-loader {
+  @apply flex w-full text-2xl justify-center font-medium h-screen items-start pt-16;
+}
+
+.recipes-container {
+  @apply flex flex-col justify-center shadow-md;
+}
+
+.recipes-searched-title {
+  @apply text-3xl font-bold bg-gradient-to-bl from-[#534666] to-[#2b2436] w-full p-8 text-center text-stone-50;
+}
+
+.recipes-searched {
+  @apply justify-evenly flex flex-row flex-wrap p-8;
+}

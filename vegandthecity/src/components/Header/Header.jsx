@@ -4,9 +4,14 @@ export default function Header() {
   return (
     <div className="header-frame">
       <Link to={"/"}>
-        <h1 className="font-black text-stone-50 text-4xl ml-12 p-8">
+        <h1 className="header-title">
           {" "}
-          VEG and the CITY{" "}
+          VEG
+          <span className="and-the-container">
+            <h2>and</h2>
+            <h2>the</h2>
+          </span>
+          CITY{" "}
         </h1>
       </Link>
     </div>

@@ -1,0 +1,15 @@
+.ingredient-card {
+  @apply flex flex-col m-4 items-center w-52 shadow-lg rounded-xl h-72;
+}
+
+.ingredient-text {
+  @apply font-bold capitalize text-base h-40 mt-8 px-8;
+}
+
+.ingredients-list {
+  @apply flex flex-row justify-evenly flex-wrap;
+}
+
+.ingredient-upper-ribbon {
+  @apply border-b-2 mb-8 rounded-t-xl bg-gradient-to-tl from-[#534666] to-[#2b2436] h-16 w-full shadow-sm;
+}

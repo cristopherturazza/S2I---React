@@ -1,7 +1,7 @@
-import React, { useState, useContext } from "react";
-import SearchBar from "../components/SearchBar";
-import Recipes from "../components/Recipes";
-import Header from "../components/Header";
+import React, { useContext } from "react";
+import SearchBar from "../components/SearchBar/SearchBar";
+import Recipes from "../components/Recipes/Recipes";
+import Header from "../components/Header/Header";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function ShowSearched() {

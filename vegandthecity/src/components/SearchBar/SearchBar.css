@@ -1,0 +1,22 @@
+.searchbar-container {
+  @apply m-12 p-8 flex flex-col items-center;
+}
+
+.searchbar {
+  @apply flex flex-row p-4 w-1/3 justify-start overflow-hidden rounded-xl shadow-md;
+}
+
+.searchbar-light {
+  @apply flex flex-row p-4 w-1/3 justify-start overflow-hidden rounded-xl shadow-xl shadow-[#1380864D];
+}
+
+.searchbar input[type="text"] {
+  @apply flex pl-4 outline-none border-none;
+}
+.searchbar-light input[type="text"] {
+  @apply flex pl-4 outline-none border-none;
+}
+
+.search-icon {
+  @apply text-2xl text-gray-400 hover:text-[#138086] drop-shadow-md cursor-pointer;
+}

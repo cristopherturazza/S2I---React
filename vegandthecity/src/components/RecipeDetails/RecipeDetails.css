@@ -1,0 +1,50 @@
+.recipe-container {
+  @apply flex flex-col;
+}
+
+.recipe-title {
+  @apply font-black text-[#534666] text-5xl ml-20 px-8 py-12;
+}
+
+.recipe-subtitle {
+  @apply font-bold text-[#534666] text-4xl;
+}
+
+.recipe-top-section {
+  @apply flex flex-row shadow-lg w-10/12 rounded-xl mx-28 mb-8;
+}
+
+.recipe-info {
+  @apply flex flex-col ml-16 pt-6;
+}
+
+.recipe-info-lines {
+  @apply flex flex-row text-xl py-2 items-center;
+}
+.recipe-info-icons {
+  @apply text-white text-4xl bg-[#DC8665] p-2 rounded-full mr-4;
+}
+
+.recipe-instructions-container {
+  @apply p-8 ml-20 w-10/12 text-lg;
+}
+
+.recipe-photo {
+  @apply rounded-l-xl object-fill;
+}
+
+.ingredients-container {
+  @apply flex flex-col p-8 ml-20 w-10/12 text-lg;
+}
+
+.ribbon-container {
+  @apply flex flex-row flex-grow justify-end;
+}
+
+.recipe-side-ribbon {
+  @apply bg-gradient-to-tl from-[#094245] to-[#138086] w-24 rounded-r-xl border-l;
+}
+
+.instructions-list {
+  @apply flex flex-col;
+}

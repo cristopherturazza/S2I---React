@@ -1,9 +1,8 @@
-import React, { useState } from "react";
-import SearchBar from "../components/SearchBar";
-import Recipes from "../components/Recipes";
-import Header from "../components/Header";
+import React from "react";
+import SearchBar from "../components/SearchBar/SearchBar";
+import Header from "../components/Header/Header";
 
-import PopularRecipes from "../components/PopularRecipes";
+import PopularRecipes from "../components/PopularRecipes/PopularRecipes";
 
 function Home() {
   return (

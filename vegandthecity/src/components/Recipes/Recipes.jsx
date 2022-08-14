@@ -1,9 +1,9 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { GlobalContext } from "../context/GlobalContext";
+import { GlobalContext } from "../../context/GlobalContext";
 import { useParams } from "react-router-dom";
-import SearchFilters from "./Filters";
-import Card from "./Card";
+import SearchFilters from "../Filters/Filters";
+import Card from "../Card/Card";
 
 export default function Recipes() {
   const { recipes, setRecipes } = useContext(GlobalContext);
@@ -11,7 +11,7 @@ export default function Recipes() {
   const [isLoading, setIsLoading] = useState(true); // loader
 
   const [diet, setDiet] = useState(false); // vegan filter on/off
-  const [cooktime, setCooktime] = useState(120); // max cooking filter option
+  const [cooktime, setCooktime] = useState(60); // max cooking time filter option
   const [dairy, setDairy] = useState(false); // dairy free filter option
   const [gluten, setGluten] = useState(false); // gluten free filter option
 
@@ -45,6 +45,8 @@ export default function Recipes() {
     setIsLoading(false);
   };
 
+  //link filter state data
+
   const handleDiet = (diet) => {
     setDiet(diet);
   };
@@ -52,9 +54,11 @@ export default function Recipes() {
   const handleTime = (time) => {
     setCooktime(time);
   };
+
   const handleDairy = (dairy) => {
     setDairy(dairy);
   };
+
   const handleGluten = (gluten) => {
     setGluten(gluten);
   };
@@ -89,10 +93,8 @@ export default function Recipes() {
   }, [diet, cooktime, dairy, gluten]);
 
   return (
-    <div className="flex flex-col w-full justify-center shadow-lg">
-      <h1 className="text-3xl font-bold bg-gradient-to-r from-[#534666] via-[#534666] to-[#DC8665] w-full p-6 text-center text-stone-50">
-        Search Results
-      </h1>
+    <div className="recipes-container">
+      <h1 className="recipes-searched-title">Search Results</h1>
       <SearchFilters
         handleTime={handleTime}
         handleDiet={handleDiet}
@@ -100,18 +102,18 @@ export default function Recipes() {
         handleGluten={handleGluten}
       />
       {recipes.length === 0 && isLoading === false && (
-        <div className="flex w-full justify-center font-medium h-screen items-center">
+        <div className="search-loader">
           <p>No recipes founded.</p>
         </div>
       )}
       {recipes.length === 0 && isLoading === true && (
-        <div className="flex w-full justify-center font-medium h-screen">
+        <div className="search-loader">
           <p>Loading...</p>
         </div>
       )}
       {recipes.length > 0 && (
         <>
-          <div className="justify-evenly flex flex-row flex-wrap p-8">
+          <div className="recipes-searched">
             {recipes.map((recipe) => (
               <Card
                 key={recipe.id}
