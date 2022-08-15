@@ -1,9 +1,9 @@
 .header-frame {
-  @apply flex w-full justify-start items-end bg-gradient-to-tr from-[#094245] to-[#138086] h-32 shadow-xl;
+  @apply flex w-full justify-center md:justify-start items-end bg-gradient-to-tr from-[#094245] to-[#138086] h-32 shadow-xl;
 }
 
 .header-title {
-  @apply flex flex-row font-black text-stone-50 text-5xl pb-8 pl-28;
+  @apply flex flex-row font-black text-stone-50 text-5xl pb-8 md:pl-28;
 }
 
 .and-the-container {

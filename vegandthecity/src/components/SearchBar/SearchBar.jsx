@@ -37,7 +37,7 @@ export default function SearchBar() {
           <input
             type="text"
             size="30"
-            placeholder="type a keyword (salad, apple, etc...)"
+            placeholder="type a keyword..."
             value={input}
             onChange={searchInput}
             onFocus={(e) => setLight("searchbar-light")}

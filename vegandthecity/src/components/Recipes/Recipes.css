@@ -11,5 +11,5 @@
 }
 
 .recipes-searched {
-  @apply justify-evenly flex flex-row flex-wrap p-8;
+  @apply justify-evenly flex flex-row flex-wrap p-16;
 }

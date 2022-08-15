@@ -7,6 +7,7 @@ import { BiRestaurant, BiHeart, BiTimer, BiFoodMenu } from "react-icons/bi";
 import { GiMilkCarton } from "react-icons/gi";
 import { BsXDiamondFill } from "react-icons/bs";
 import Instruction from "../Instruction/Instruction";
+import Card from "../Card/Card";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
@@ -14,6 +15,7 @@ import { Navigation, Pagination } from "swiper";
 export default function RecipeDetails() {
   const { recipes } = useContext(GlobalContext);
   const [recipe, setRecipe] = useState({});
+  const [similarRecipes, setSimilarRecipes] = useState([]);
   const { id } = useParams();
 
   // fetch recipe if is not in the global stare
@@ -25,6 +27,25 @@ export default function RecipeDetails() {
       );
       const data = response.data;
       setRecipe(data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const fetchSimilar = async (id) => {
+    try {
+      const response = await axios.get(
+        `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}&number=4`
+      );
+      const data = response.data;
+      const similarRecipesId = data.map((recipe) => recipe.id).toString();
+
+      //fetch full data recipes
+
+      const responseRecipes = await axios.get(
+        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${similarRecipesId}`
+      );
+      setSimilarRecipes(responseRecipes);
     } catch (error) {
       console.log(error);
     }
@@ -43,6 +64,11 @@ export default function RecipeDetails() {
     } else {
       fetchRecipe(id);
     }
+  }, []);
+
+  useEffect(() => {
+    fetchSimilar(id);
+    console.log(similarRecipes);
   }, []);
 
   return (
@@ -94,6 +120,31 @@ export default function RecipeDetails() {
           <Swiper
             slidesPerView={4}
             spaceBetween={0}
+            breakpoints={{
+              // when window width is >= 18px
+              180: {
+                slidesPerView: 1,
+                spaceBetween: 0,
+              },
+              // when window width is >= 830px
+              830: {
+                slidesPerView: 2,
+                spaceBetween: 0,
+              },
+              // when window width is >= 1120px
+              1120: {
+                slidesPerView: 3,
+                spaceBetween: 0,
+              },
+              1400: {
+                slidesPerView: 4,
+                spaceBetween: 0,
+              },
+              1900: {
+                slidesPerView: 5,
+                spaceBetween: 0,
+              },
+            }}
             slideToClickedSlide={true}
             slidesOffsetBefore={55}
             navigation={true}
@@ -127,6 +178,20 @@ export default function RecipeDetails() {
             <Instruction key={index} number={instr.number} text={instr.step} />
           );
         })}
+      </div>
+      <div className="similar-recipes-container">
+        <div className="similar-recipes-list">
+          {/*similarRecipes?.map((recipe) => (
+            <Card
+              key={recipe.id}
+              id={recipe.id}
+              image={recipe.image}
+              title={recipe.title}
+              servings={recipe.servings}
+              hscore={recipe.healthScore}
+            />
+          ))*/}
+        </div>
       </div>
     </div>
   );
