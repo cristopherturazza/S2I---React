@@ -8,6 +8,9 @@ import { GiMilkCarton } from "react-icons/gi";
 import { BsXDiamondFill } from "react-icons/bs";
 import Instruction from "../Instruction/Instruction";
 
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+
 export default function RecipeDetails() {
   const { recipes } = useContext(GlobalContext);
   const [recipe, setRecipe] = useState({});
@@ -88,22 +91,38 @@ export default function RecipeDetails() {
       <div className="ingredients-container">
         <h1 className="recipe-subtitle mb-8">Ingredients</h1>
         <div className="ingredients-list">
-          {recipe?.extendedIngredients?.map((ingredient, index) => (
-            <Ingredient
-              key={index}
-              id={ingredient.id}
-              image={ingredient.image}
-              original={ingredient.original}
-              name={ingredient.name}
-            />
-          ))}
+          <Swiper
+            slidesPerView={4}
+            spaceBetween={0}
+            slideToClickedSlide={true}
+            slidesOffsetBefore={55}
+            navigation={true}
+            rewind={true}
+            pagination={{
+              dynamicBullets: true,
+            }}
+            centerInsufficientSlides={true}
+            modules={[Navigation, Pagination]}
+          >
+            {recipe?.extendedIngredients?.map((ingredient, index) => (
+              <SwiperSlide>
+                <Ingredient
+                  key={index}
+                  id={ingredient.id}
+                  image={ingredient.image}
+                  original={ingredient.original}
+                  name={ingredient.name}
+                />
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
       </div>
       <div className="recipe-instructions-container">
         <h2 className="recipe-subtitle"> Instructions </h2>
       </div>
       <div className="instructions-list">
-        {recipe?.analyzedInstructions?.[0].steps?.map((instr, index) => {
+        {recipe?.analyzedInstructions?.[0].steps.map((instr, index) => {
           return (
             <Instruction key={index} number={instr.number} text={instr.step} />
           );

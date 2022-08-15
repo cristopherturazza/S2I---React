@@ -25,4 +25,8 @@ code {
 @import "./components/Ingredient/Ingredient.css";
 @import "./components/Instruction/Instruction.css";
 
+@import "swiper/css";
+@import "swiper/css/navigation";
+@import "swiper/css/pagination";
+
 @tailwind utilities;
