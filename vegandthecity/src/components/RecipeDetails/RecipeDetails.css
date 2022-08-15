@@ -26,7 +26,7 @@
 }
 
 .recipe-instructions-container {
-  @apply p-8 ml-20 w-10/12 text-lg;
+  @apply p-8 ml-20 w-10/12;
 }
 
 .recipe-photo {
@@ -34,7 +34,11 @@
 }
 
 .ingredients-container {
-  @apply flex flex-col p-8 ml-20 w-10/12 text-lg;
+  @apply flex flex-col mx-28 mt-8;
+}
+
+.ingredients-list {
+  @apply flex flex-row;
 }
 
 .ribbon-container {
@@ -47,4 +51,8 @@
 
 .instructions-list {
   @apply flex flex-col;
+}
+
+.swiper-wrapper {
+  @apply mb-4;
 }
