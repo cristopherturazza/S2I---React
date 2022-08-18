@@ -56,3 +56,11 @@
 .swiper-wrapper {
   @apply mb-4;
 }
+
+.similar-recipes-container {
+  @apply flex flex-col mx-28 mt-8;
+}
+
+.similar-recipes-list {
+  @apply flex flex-row justify-evenly flex-wrap mb-8;
+}

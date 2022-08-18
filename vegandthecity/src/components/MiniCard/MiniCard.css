@@ -1,0 +1,23 @@
+.minicard-frame {
+  @apply w-56 mx-2 my-10 shadow-md rounded-xl bg-slate-100;
+}
+
+.minicard-image {
+  @apply h-48 w-full object-fill rounded-t-xl;
+}
+
+.minicard-text-container {
+  @apply flex flex-col justify-start h-12;
+}
+
+.minicard-recipe-title {
+  @apply truncate px-6 pt-4 text-base font-extrabold text-[#534666];
+}
+
+.minicard-button-container {
+  @apply flex justify-center items-center m-4 h-20;
+}
+
+.minicard-button {
+  @apply bg-[#138086] hover:bg-[#DC8665] px-4 py-4 text-sm font-medium text-stone-50 rounded-xl shadow-md hover:shadow-lg;
+}

@@ -1,11 +1,11 @@
 .header-frame {
-  @apply flex w-full justify-center md:justify-start items-end bg-gradient-to-tr from-[#094245] to-[#138086] h-32 shadow-xl;
+  @apply flex z-50 w-full justify-start items-end bg-gradient-to-tr from-[#094245] to-[#138086] h-24 shadow-2xl;
 }
 
 .header-title {
-  @apply flex flex-row font-black text-stone-50 text-5xl pb-8 md:pl-28;
+  @apply flex flex-row font-black text-stone-50 text-4xl pb-6 pl-20;
 }
 
 .and-the-container {
-  @apply flex flex-col font-serif items-center leading-none text-xl px-2 pt-0.5;
+  @apply flex flex-col font-serif items-center leading-none text-base px-2 pt-0.5;
 }

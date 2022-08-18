@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import Card from "../Card/Card";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function PopularRecipes() {
   const [popular, setPopular] = useState([]);
@@ -20,7 +20,9 @@ export default function PopularRecipes() {
     } catch (error) {
       console.log(error);
     }
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   useEffect(() => {
@@ -28,17 +30,24 @@ export default function PopularRecipes() {
   }, []);
 
   return (
-    <>
-      {isLoading === true && (
+    <div className="recipes-container">
+      <h1 className="recipes-searched-title">Today Picks</h1>
+      {popular.length === 0 && isLoading === true && (
         <div className="search-loader">
-          <p>Loading...</p>
+          <LoadingSpinner />
         </div>
       )}
-      {isLoading === false && (
+      {popular.length === 0 && isLoading === false && (
+        <div className="search-loader">
+          <p className="text-center">
+            {" "}
+            Connection to the server failed. <br />
+            Try to reload the page.{" "}
+          </p>
+        </div>
+      )}
+      {popular.length > 0 && isLoading === false && (
         <>
-          <div className="recipes-container">
-            <h1 className="recipes-searched-title">Staff Picks</h1>
-          </div>
           <div className="recipes-searched">
             {popular.map((recipe) => (
               <Card
@@ -53,6 +62,6 @@ export default function PopularRecipes() {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }

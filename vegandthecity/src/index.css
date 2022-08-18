@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
 
 body {
   margin: 0;
@@ -17,6 +18,7 @@ code {
 
 @tailwind components;
 @import "./components/Card/Card.css";
+@import "./components/MiniCard/MiniCard.css";
 @import "./components/Filters/Filters.css";
 @import "./components/Header/Header.css";
 @import "./components/RecipeDetails/RecipeDetails.css";
@@ -24,9 +26,13 @@ code {
 @import "./components/SearchBar/SearchBar.css";
 @import "./components/Ingredient/Ingredient.css";
 @import "./components/Instruction/Instruction.css";
+@import "./components/Footer/Footer.css";
+@import "./components/Hero/Hero.css";
+@import "./components/LoadingSpinner/LoadingSpinner.css";
 
 @import "swiper/css";
 @import "swiper/css/navigation";
 @import "swiper/css/pagination";
+@import "swiper/css/autoplay";
 
 @tailwind utilities;

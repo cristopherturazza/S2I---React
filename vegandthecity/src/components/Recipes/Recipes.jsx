@@ -4,6 +4,7 @@ import { GlobalContext } from "../../context/GlobalContext";
 import { useParams } from "react-router-dom";
 import SearchFilters from "../Filters/Filters";
 import Card from "../Card/Card";
+import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function Recipes() {
   const { recipes, setRecipes } = useContext(GlobalContext);
@@ -42,7 +43,9 @@ export default function Recipes() {
     } catch (error) {
       console.log(error);
     }
-    setIsLoading(false);
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
   };
 
   //link filter state data
@@ -86,6 +89,7 @@ export default function Recipes() {
 
   useEffect(() => {
     searchRecipes(query);
+    window.scrollTo(0, 0);
   }, [query]);
 
   useEffect(() => {
@@ -108,7 +112,7 @@ export default function Recipes() {
       )}
       {recipes.length === 0 && isLoading === true && (
         <div className="search-loader">
-          <p>Loading...</p>
+          <LoadingSpinner />
         </div>
       )}
       {recipes.length > 0 && (

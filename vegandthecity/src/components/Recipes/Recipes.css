@@ -1,15 +1,15 @@
 .search-loader {
-  @apply flex w-full text-2xl justify-center font-medium h-screen items-start pt-16;
+  @apply flex w-full text-2xl justify-center font-medium items-start pt-8;
 }
 
 .recipes-container {
-  @apply flex flex-col justify-center shadow-md;
+  @apply flex flex-col justify-center;
 }
 
 .recipes-searched-title {
-  @apply text-3xl font-bold bg-gradient-to-bl from-[#534666] to-[#2b2436] w-full p-8 text-center text-stone-50;
+  @apply text-5xl font-extrabold w-full mt-8 mb-4 text-center text-[#534666];
 }
 
 .recipes-searched {
-  @apply justify-evenly flex flex-row flex-wrap p-16;
+  @apply justify-evenly flex flex-row flex-wrap px-16;
 }

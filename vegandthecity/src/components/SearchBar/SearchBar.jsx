@@ -1,9 +1,9 @@
-import { useState, useContext, useEffect, useRef } from "react";
+import { useState, useContext, useEffect, useRef, forwardRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GlobalContext } from "../../context/GlobalContext";
 import { BiSearch } from "react-icons/bi";
 
-export default function SearchBar() {
+const SearchBar = forwardRef((props, ref) => {
   const { recipes, setRecipes } = useContext(GlobalContext);
   const [input, setInput] = useState(""); // inputs from the user keyboard
   const [light, setLight] = useState("searchbar");
@@ -29,12 +29,16 @@ export default function SearchBar() {
 
   return (
     <div className="searchbar-container">
+      <div className="searchbar-title">
+        <h1> Search your recipe </h1>
+      </div>
       <div className={light}>
         <span className="search-icon" onClick={submitHandler}>
           <BiSearch />
         </span>
         <form onSubmit={submitHandler}>
           <input
+            ref={ref}
             type="text"
             size="30"
             placeholder="type a keyword..."
@@ -47,4 +51,6 @@ export default function SearchBar() {
       </div>
     </div>
   );
-}
+});
+
+export default SearchBar;

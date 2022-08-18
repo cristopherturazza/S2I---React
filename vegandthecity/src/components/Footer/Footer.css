@@ -1,0 +1,3 @@
+.footer-container {
+  @apply flex flex-row mt-6 justify-center bg-gradient-to-tr from-[#094245] to-[#138086] text-white font-semibold text-xl items-end h-24;
+}

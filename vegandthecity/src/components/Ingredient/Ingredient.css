@@ -3,7 +3,7 @@
 }
 
 .ingredient-text {
-  @apply font-bold capitalize text-base h-40 mt-8 px-8;
+  @apply font-bold capitalize text-base h-40 mt-4 px-8;
 }
 
 .ingredient-upper-ribbon {

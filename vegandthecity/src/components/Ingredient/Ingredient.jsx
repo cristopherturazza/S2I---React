@@ -12,7 +12,7 @@ export default function Ingredient(props) {
       <span className="ingredient-text">
         <LinesEllipsis
           text={props.original}
-          maxLine="2"
+          maxLine="3"
           ellipsis="..."
           trimRight
           basedOn="letters"

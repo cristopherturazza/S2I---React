@@ -1,6 +1,7 @@
 import React, { Suspense, useContext } from "react";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import { GlobalContext } from "../context/GlobalContext";
 
 export default function ShowRecipe() {
@@ -11,6 +12,7 @@ export default function ShowRecipe() {
       <GlobalContext.Provider value={{ recipes, setRecipes }}>
         <Header />
         <RecipeDetails />
+        <Footer />
       </GlobalContext.Provider>
     </div>
   );
