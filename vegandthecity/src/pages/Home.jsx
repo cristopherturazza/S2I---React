@@ -20,7 +20,7 @@ export default function Home() {
       <Header />
       <Hero scrollTo={scrollTo} />
       <PopularRecipes />
-      <SearchBar ref={buttonRef} />
+      <SearchBar ref={buttonRef} title={"Search Your Recipe"} />
       <Footer />
     </div>
   );

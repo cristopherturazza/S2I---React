@@ -1,3 +1,15 @@
 .footer-container {
-  @apply flex flex-row mt-6 justify-center bg-gradient-to-tr from-[#094245] to-[#138086] text-white font-semibold text-xl items-end h-24;
+  @apply flex flex-col h-36 items-center justify-start mt-6 bg-gradient-to-tr from-[#094245] to-[#138086];
+}
+
+.footer-links-container {
+  @apply flex flex-row  mb-4 mt-8;
+}
+
+.footer-link {
+  @apply text-4xl text-white drop-shadow-lg transition-all cursor-pointer mx-6 hover:scale-110 origin-bottom-left;
+}
+
+.footer-copy {
+  @apply text-white font-semibold text-xl mt-4;
 }

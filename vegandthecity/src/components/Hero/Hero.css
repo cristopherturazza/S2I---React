@@ -23,9 +23,14 @@
 }
 
 .cta-button-container {
-  @apply flex justify-center items-center mt-4 mb-16;
+  @apply flex justify-center items-center mt-8 mb-8;
 }
 
 .cta-button {
-  @apply bg-[#138086] hover:bg-[#ea7c50] cursor-pointer text-base tracking-normal px-6 py-4 font-normal text-stone-50 rounded-xl shadow-lg hover:shadow-lg hover:shadow-[#ea7c5088];
+  @apply bg-[#138086] hover:bg-[#ea7c50] transition-all relative cursor-pointer text-base tracking-normal px-6 py-4 font-normal text-stone-50 rounded-xl shadow-lg;
+}
+
+.cta-button::after {
+  @apply bg-[#ea7c50] absolute w-full h-full top-0 left-0 rounded-3xl shadow-xl shadow-[#ea7c5088] animate-pulse -z-10;
+  content: "";
 }

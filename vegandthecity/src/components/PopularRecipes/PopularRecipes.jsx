@@ -22,22 +22,23 @@ export default function PopularRecipes() {
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1500);
   };
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     downloadPopular();
   }, []);
 
   return (
     <div className="recipes-container">
       <h1 className="recipes-searched-title">Today Picks</h1>
-      {popular.length === 0 && isLoading === true && (
+      {isLoading === true && (
         <div className="search-loader">
           <LoadingSpinner />
         </div>
       )}
-      {popular.length === 0 && isLoading === false && (
+      {isLoading === false && popular && popular.length === 0 && (
         <div className="search-loader">
           <p className="text-center">
             {" "}
@@ -46,7 +47,7 @@ export default function PopularRecipes() {
           </p>
         </div>
       )}
-      {popular.length > 0 && isLoading === false && (
+      {isLoading === false && popular && popular.length > 0 && (
         <>
           <div className="recipes-searched">
             {popular.map((recipe) => (

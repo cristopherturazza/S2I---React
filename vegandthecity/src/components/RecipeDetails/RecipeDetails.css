@@ -46,7 +46,7 @@
 }
 
 .recipe-side-ribbon {
-  @apply bg-gradient-to-tl from-[#094245] to-[#138086] w-24 rounded-r-xl border-l;
+  @apply flex flex-col justify-end bg-gradient-to-tl from-[#094245] to-[#138086] w-40 rounded-r-xl border-l;
 }
 
 .instructions-list {
@@ -63,4 +63,16 @@
 
 .similar-recipes-list {
   @apply flex flex-row justify-evenly flex-wrap mb-8;
+}
+
+.recipe-add-favorite-container {
+  @apply flex flex-col items-center mb-14  justify-center;
+}
+
+.heart-favorite-button {
+  @apply text-4xl mt-4 drop-shadow-lg active:animate-ping text-white cursor-pointer;
+}
+
+.text-favorite-button {
+  @apply w-2/3 text-white rounded-full text-base text-center;
 }

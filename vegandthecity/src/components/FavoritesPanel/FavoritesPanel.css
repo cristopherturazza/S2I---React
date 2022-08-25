@@ -1,0 +1,23 @@
+.favorites-container {
+  @apply flex flex-col items-start ml-20;
+}
+
+.favorites-title {
+  @apply text-5xl font-extrabold mt-12 text-[#534666];
+}
+
+.favorites-card-container {
+  @apply flex flex-col items-center;
+}
+
+.no-favorites {
+  @apply flex flex-col mb-20;
+}
+
+.no-recipes {
+  @apply text-2xl font-semibold w-full mt-20 mb-20 text-center;
+}
+
+.favorites-back-home {
+  @apply text-lg bg-[#138086] hover:bg-[#DC8665] transition-all px-4 py-2 text-white font-medium rounded-xl shadow-md hover:shadow-lg;
+}

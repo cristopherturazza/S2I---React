@@ -2,103 +2,80 @@ import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { useParams, useLocation } from "react-router-dom";
 import Ingredient from "../Ingredient/Ingredient";
-import { GlobalContext } from "../../context/GlobalContext";
 import { BiRestaurant, BiHeart, BiTimer, BiFoodMenu } from "react-icons/bi";
 import { GiMilkCarton } from "react-icons/gi";
-import { BsXDiamondFill } from "react-icons/bs";
+import { BsXDiamondFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import Instruction from "../Instruction/Instruction";
 import MiniCard from "../MiniCard/MiniCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import { FavoritesContext } from "../../context/FavoritesContextProvider";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
 export default function RecipeDetails() {
-  const { recipes } = useContext(GlobalContext);
   const [recipe, setRecipe] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [favorite, setFavorite] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [similarRecipes, setSimilarRecipes] = useState({});
+  const { favRecipes, addFavRecipe, removeFavRecipe } =
+    useContext(FavoritesContext);
   const { id } = useParams();
   const location = useLocation();
-
-  // fetch recipe if is not in the global stare
 
   const fetchRecipe = async (id) => {
     setIsLoading(true);
     try {
+      // fetch recipe main data
+
       const response = await axios.get(
         `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
       );
-      const data = response.data;
-      setRecipe(data);
-    } catch (error) {
-      console.log(error);
-    }
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
+      setRecipe(response.data);
 
-  const fetchSimilar = async (id) => {
-    setIsLoading(true);
-    try {
-      const response = await axios.get(
+      // fetch similar recipes by id
+
+      const similar = await axios.get(
         `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}&number=4`
       );
-      const data = response.data;
-      const similarRecipesId = data.map((recipe) => recipe.id).toString();
-
-      //fetch full data recipes
-
-      const responseRecipes = await axios.get(
-        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${similarRecipesId}`
-      );
-      setSimilarRecipes(responseRecipes.data);
+      setSimilarRecipes(similar.data);
     } catch (error) {
       console.log(error);
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1500);
   };
 
-  // pick recipe from the global state
-
-  const pickRecipe = (id) => {
-    setIsLoading(true);
-    const data = recipes.find((recipe) => recipe.id === id);
-    setRecipe(data);
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
+  const handleFavorite = () => {
+    favorite
+      ? removeFavRecipe(recipe.id)
+      : addFavRecipe(recipe.id, recipe.title, recipe.image);
+    setFavorite(!favorite);
   };
 
+  // fetch recipes on loading
   useEffect(() => {
-    if (recipes.length > 0) {
-      pickRecipe(id);
-    } else {
-      fetchRecipe(id);
-    }
     window.scrollTo(0, 0);
-  }, [location]);
-
-  useEffect(() => {
-    fetchSimilar(id);
+    fetchRecipe(id);
+    favRecipes.find((fav) => fav.id === id)
+      ? setFavorite(true)
+      : setFavorite(false);
   }, [location]);
 
   return (
     <div className="recipe-container">
-      {recipe && isLoading === true && (
+      {isLoading === true && (
         <div className="search-loader">
           <LoadingSpinner />
         </div>
       )}
-      {recipe && isLoading === false && (
+      {isLoading === false && recipe && Object.keys(recipe).length === 0 && (
         <div className="search-loader">
           <p>No data founded. Try to reload the page.</p>
         </div>
       )}
-      {recipe && isLoading === false && (
+      {isLoading === false && recipe && Object.keys(recipe).length > 0 && (
         <>
           <h1 className="recipe-title">{recipe.title}</h1>
           <div className="recipe-top-section">
@@ -143,10 +120,36 @@ export default function RecipeDetails() {
                 <strong>Health Score:&nbsp;</strong> {recipe.healthScore}{" "}
               </span>
             </div>
+
             <div className="ribbon-container">
-              <div className="recipe-side-ribbon"></div>
+              <div className="recipe-side-ribbon">
+                <div className="recipe-add-favorite-container">
+                  {favorite ? (
+                    <>
+                      <div className="text-favorite-button">
+                        Remove from favorites
+                      </div>
+                      <BsHeartFill
+                        className="heart-favorite-button"
+                        onClick={handleFavorite}
+                      />
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-favorite-button">
+                        Add to favorites
+                      </div>
+                      <BsHeart
+                        className="heart-favorite-button"
+                        onClick={handleFavorite}
+                      />
+                    </>
+                  )}
+                </div>
+              </div>
             </div>
           </div>
+
           <div className="ingredients-container">
             <h1 className="recipe-subtitle mb-8">Ingredients</h1>
             <div className="ingredients-list">
@@ -189,7 +192,7 @@ export default function RecipeDetails() {
                 modules={[Navigation, Pagination]}
               >
                 {recipe?.extendedIngredients?.map((ingredient, index) => (
-                  <SwiperSlide>
+                  <SwiperSlide key={"S" + index}>
                     <Ingredient
                       key={index}
                       id={ingredient.id}
@@ -231,7 +234,12 @@ export default function RecipeDetails() {
                     <MiniCard
                       key={recipe.id}
                       id={recipe.id}
-                      image={recipe.image}
+                      image={
+                        "https://spoonacular.com/recipeImages/" +
+                        recipe.id +
+                        "-556x370." +
+                        recipe.imageType
+                      }
                       title={recipe.title}
                       servings={recipe.servings}
                       hscore={recipe.healthScore}

@@ -29,6 +29,8 @@ code {
 @import "./components/Footer/Footer.css";
 @import "./components/Hero/Hero.css";
 @import "./components/LoadingSpinner/LoadingSpinner.css";
+@import "./components/NavFootButtons/NavFootButtons.css";
+@import "./components/FavoritesPanel/FavoritesPanel.css";
 
 @import "swiper/css";
 @import "swiper/css/navigation";

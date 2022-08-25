@@ -1,19 +1,19 @@
-import React, { Suspense, useContext } from "react";
+import React from "react";
 import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import Header from "../components/Header/Header";
+import NavFootButtons from "../components/NavFootButtons/NavFootButtons";
 import Footer from "../components/Footer/Footer";
-import { GlobalContext } from "../context/GlobalContext";
+import FavoritesContextProvider from "../context/FavoritesContextProvider";
 
 export default function ShowRecipe() {
-  const { recipes, setRecipes } = useContext(GlobalContext);
-
   return (
     <div>
-      <GlobalContext.Provider value={{ recipes, setRecipes }}>
+      <FavoritesContextProvider>
         <Header />
         <RecipeDetails />
+        <NavFootButtons />
         <Footer />
-      </GlobalContext.Provider>
+      </FavoritesContextProvider>
     </div>
   );
 }

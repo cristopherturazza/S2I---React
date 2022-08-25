@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { BiRestaurant, BiHeart } from "react-icons/bi";
 
 export default function Card(props) {
   return (

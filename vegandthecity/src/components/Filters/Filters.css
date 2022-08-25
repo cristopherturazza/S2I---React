@@ -1,15 +1,27 @@
 .filters-container {
-  @apply p-2 flex flex-row justify-evenly shadow-md;
+  @apply flex flex-col justify-center shadow-lg;
+}
+
+.filter-box {
+  @apply flex flex-row w-full justify-center transition-transform origin-top bg-gradient-to-tr from-[#534666] to-[#2b2436] text-white;
+}
+
+.filter-button {
+  @apply flex flex-row font-semibold shadow-lg active:shadow-none items-center cursor-pointer bg-[#138086] text-white py-1 px-8 rounded-full;
+}
+
+.filter-button-container {
+  @apply flex flex-row w-full justify-center  mt-6 pb-8;
 }
 
 .single-filter-container {
-  @apply flex flex-col p-4 items-center;
+  @apply flex flex-col px-6 py-8 font-semibold items-center;
 }
 
 .filter-checkbox {
-  @apply mt-2 h-6 w-6 text-center accent-[#138086];
+  @apply mt-2 h-6 w-6 text-center accent-[#ea7c50];
 }
 
 .filter-time-slider {
-  @apply w-full h-2 mt-4 p-1 shadow-md bg-stone-200 accent-[#138086] rounded-md appearance-none cursor-pointer;
+  @apply w-full h-2 mt-4 p-1 shadow-md bg-stone-200 accent-[#ea7c50] rounded-md appearance-none cursor-pointer;
 }

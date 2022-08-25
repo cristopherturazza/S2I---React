@@ -14,6 +14,11 @@ export default function Header() {
           CITY{" "}
         </h1>
       </Link>
+      <div className="header-navbar">
+        <Link to={"/favorites/"}>
+          <span className="nav-link">My Recipes</span>
+        </Link>
+      </div>
     </div>
   );
 }

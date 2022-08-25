@@ -1,13 +1,13 @@
 import { useContext, useEffect, useState } from "react";
 import axios from "axios";
-import { GlobalContext } from "../../context/GlobalContext";
+import { FavoritesContextProvider } from "../../context/FavoritesContextProvider";
 import { useParams } from "react-router-dom";
 import SearchFilters from "../Filters/Filters";
 import Card from "../Card/Card";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 
 export default function Recipes() {
-  const { recipes, setRecipes } = useContext(GlobalContext);
+  const [recipes, setRecipes] = useState([]);
   const [searchAPI, setSearchAPI] = useState([]); // download API memory
   const [isLoading, setIsLoading] = useState(true); // loader
 
@@ -45,7 +45,7 @@ export default function Recipes() {
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 1500);
   };
 
   //link filter state data
@@ -88,8 +88,8 @@ export default function Recipes() {
   };
 
   useEffect(() => {
-    searchRecipes(query);
     window.scrollTo(0, 0);
+    searchRecipes(query);
   }, [query]);
 
   useEffect(() => {
@@ -98,7 +98,7 @@ export default function Recipes() {
 
   return (
     <div className="recipes-container">
-      <h1 className="recipes-searched-title">Search Results</h1>
+      <h1 className="recipes-searched-title">Search Results for "{query}"</h1>
       <SearchFilters
         handleTime={handleTime}
         handleDiet={handleDiet}

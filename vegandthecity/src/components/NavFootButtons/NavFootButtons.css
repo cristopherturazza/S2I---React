@@ -1,0 +1,7 @@
+.nav-foot-buttons-container {
+  @apply flex flex-row justify-center w-full mb-8;
+}
+
+.nav-foot-button {
+  @apply flex flex-row items-center cursor-pointer scroll-smooth text-[#534666] text-xl font-semibold;
+}
