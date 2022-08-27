@@ -1,5 +1,5 @@
 .card-frame {
-  @apply w-80 mx-2 my-10 shadow-md rounded-xl bg-slate-100;
+  @apply w-72 sm:w-80 mx-2 my-10 shadow-md rounded-xl bg-slate-100;
 }
 
 .card-image {

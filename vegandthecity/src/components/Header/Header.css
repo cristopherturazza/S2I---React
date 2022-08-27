@@ -3,7 +3,7 @@
 }
 
 .header-title {
-  @apply flex flex-row font-black text-stone-50 text-4xl pb-6 pl-20;
+  @apply hidden sm:flex flex-row font-black text-stone-50 text-4xl pb-6 pl-20;
 }
 
 .and-the-container {
@@ -11,7 +11,7 @@
 }
 
 .header-navbar {
-  @apply flex pb-6 pr-20 text-white font-semibold text-xl;
+  @apply flex pb-6 pr-12 sm:pr-20 text-white font-semibold text-lg sm:text-xl;
 }
 
 .nav-link {

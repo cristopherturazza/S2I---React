@@ -1,8 +1,10 @@
 import { useContext, useState } from "react";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import FavCard from "../FavCard/FavCard";
 import { FavoritesContext } from "../../context/FavoritesContextProvider";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { FaChevronCircleLeft } from "react-icons/fa";
 
 export default function FavoritesPanel() {
   const { favRecipes } = useContext(FavoritesContext);
@@ -30,8 +32,23 @@ export default function FavoritesPanel() {
           <div className="no-favorites">
             <h3 className="no-recipes">No favorite recipes here.</h3>
             <Link to={"/"}>
-              <span className="favorites-back-home">Back to the homepage</span>
+              <span className="favorites-back-home">
+                <FaChevronCircleLeft className="mr-4" />
+                Back to the homepage
+              </span>
             </Link>
+          </div>
+        )}
+        {favRecipes.length > 0 && (
+          <div className="favorites-card-list">
+            {favRecipes.map((recipe) => (
+              <FavCard
+                key={recipe.id}
+                id={recipe.id}
+                image={recipe.image}
+                title={recipe.title}
+              />
+            ))}
           </div>
         )}
       </div>

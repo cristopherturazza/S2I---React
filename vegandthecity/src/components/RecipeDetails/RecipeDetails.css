@@ -3,76 +3,76 @@
 }
 
 .recipe-title {
-  @apply font-black text-[#534666] text-5xl ml-20 px-8 py-12;
+  @apply font-black text-[#534666] text-4xl sm:text-5xl ml-12 sm:ml-28 py-12;
 }
 
 .recipe-subtitle {
-  @apply font-bold text-[#534666] text-4xl;
+  @apply font-bold text-[#534666] text-3xl sm:text-4xl;
 }
 
 .recipe-top-section {
-  @apply flex flex-row shadow-lg w-10/12 rounded-xl mx-28 mb-8;
+  @apply flex flex-col sm:flex-row shadow-lg rounded-xl mx-12 sm:mx-28 mb-8;
 }
 
 .recipe-info {
-  @apply flex flex-col ml-16 pt-6;
+  @apply flex flex-col m-8 sm:ml-16 pt-6;
 }
 
 .recipe-info-lines {
-  @apply flex flex-row text-xl py-2 items-center;
+  @apply flex flex-row text-lg sm:text-xl py-2 items-center;
 }
 .recipe-info-icons {
-  @apply text-white text-4xl bg-[#DC8665] p-2 rounded-full mr-4;
-}
-
-.recipe-instructions-container {
-  @apply p-8 ml-20 w-10/12;
-}
-
-.recipe-photo {
-  @apply rounded-l-xl object-fill;
-}
-
-.ingredients-container {
-  @apply flex flex-col mx-28 mt-8;
-}
-
-.ingredients-list {
-  @apply flex flex-row;
+  @apply text-white text-3xl sm:text-4xl bg-[#DC8665] p-2 rounded-full mr-4;
 }
 
 .ribbon-container {
-  @apply flex flex-row flex-grow justify-end;
+  @apply flex flex-row flex-grow justify-center;
 }
 
 .recipe-side-ribbon {
-  @apply flex flex-col justify-end bg-gradient-to-tl from-[#094245] to-[#138086] w-40 rounded-r-xl border-l;
-}
-
-.instructions-list {
-  @apply flex flex-col;
-}
-
-.swiper-wrapper {
-  @apply mb-4;
-}
-
-.similar-recipes-container {
-  @apply flex flex-col mx-28 mt-8;
-}
-
-.similar-recipes-list {
-  @apply flex flex-row justify-evenly flex-wrap mb-8;
+  @apply flex flex-col justify-end bg-gradient-to-tl from-[#094245] to-[#138086] w-full sm:w-40 mt-8 rounded-b-xl sm:rounded-r-xl border-l;
 }
 
 .recipe-add-favorite-container {
-  @apply flex flex-col items-center mb-14  justify-center;
+  @apply flex flex-col items-center my-8 sm:mb-14  justify-center;
 }
 
 .heart-favorite-button {
   @apply text-4xl mt-4 drop-shadow-lg active:animate-ping text-white cursor-pointer;
 }
 
+.recipe-instructions-container {
+  @apply py-8 ml-12 w-10/12;
+}
+
+.instructions-list {
+  @apply flex flex-col;
+}
+
+.recipe-photo {
+  @apply rounded-t-xl sm:rounded-l-xl object-fill;
+}
+
+.ingredients-container {
+  @apply flex flex-col mx-12 sm:mx-28 mt-8 mb-4;
+}
+
+.ingredients-list {
+  @apply flex flex-row;
+}
+
+.similar-recipes-container {
+  @apply flex flex-col mx-12 sm:mx-28 mt-8;
+}
+
+.similar-recipes-list {
+  @apply flex flex-row justify-evenly flex-wrap mb-8;
+}
+
 .text-favorite-button {
   @apply w-2/3 text-white rounded-full text-base text-center;
+}
+
+.swiper-wrapper {
+  @apply mb-16;
 }

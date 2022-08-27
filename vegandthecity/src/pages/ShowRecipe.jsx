@@ -3,17 +3,16 @@ import RecipeDetails from "../components/RecipeDetails/RecipeDetails";
 import Header from "../components/Header/Header";
 import NavFootButtons from "../components/NavFootButtons/NavFootButtons";
 import Footer from "../components/Footer/Footer";
-import FavoritesContextProvider from "../context/FavoritesContextProvider";
 
 export default function ShowRecipe() {
   return (
-    <div>
-      <FavoritesContextProvider>
+    <div className="relative min-h-screen">
+      <div className="flex flex-col pb-36">
         <Header />
         <RecipeDetails />
         <NavFootButtons />
-        <Footer />
-      </FavoritesContextProvider>
+      </div>
+      <Footer />
     </div>
   );
 }

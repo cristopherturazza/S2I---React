@@ -2,17 +2,16 @@ import React from "react";
 import Header from "../components/Header/Header";
 import FavoritesPanel from "../components/FavoritesPanel/FavoritesPanel";
 import Footer from "../components/Footer/Footer";
-import FavoritesContextProvider from "../context/FavoritesContextProvider";
 
 export default function Favorites() {
   return (
     <>
-      <div>
-        <FavoritesContextProvider>
+      <div className="relative min-h-screen">
+        <div className="flex flex-col pb-36">
           <Header />
           <FavoritesPanel />
-          <Footer />
-        </FavoritesContextProvider>
+        </div>
+        <Footer />
       </div>
     </>
   );

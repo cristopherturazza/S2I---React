@@ -8,11 +8,13 @@ import Footer from "../components/Footer/Footer";
 export default function ShowSearched() {
   return (
     <>
-      <div>
-        <Header />
-        <Recipes />
-        <SearchBar title={"Search Another Recipe"} />
-        <NavFootButtons />
+      <div className="relative min-h-screen">
+        <div className="flex flex-col pb-36">
+          <Header />
+          <Recipes />
+          <SearchBar title={"Search Another Recipe"} />
+          <NavFootButtons />
+        </div>
         <Footer />
       </div>
     </>

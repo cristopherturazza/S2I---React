@@ -11,7 +11,7 @@ import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import { FavoritesContext } from "../../context/FavoritesContextProvider";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper";
+import { Scrollbar } from "swiper";
 
 export default function RecipeDetails() {
   const [recipe, setRecipe] = useState({});
@@ -154,8 +154,6 @@ export default function RecipeDetails() {
             <h1 className="recipe-subtitle mb-8">Ingredients</h1>
             <div className="ingredients-list">
               <Swiper
-                slidesPerView={4}
-                spaceBetween={0}
                 breakpoints={{
                   // when window width is >= 18px
                   180: {
@@ -163,33 +161,28 @@ export default function RecipeDetails() {
                     spaceBetween: 0,
                   },
                   // when window width is >= 830px
-                  830: {
+                  600: {
                     slidesPerView: 2,
                     spaceBetween: 0,
                   },
                   // when window width is >= 1120px
-                  1120: {
+                  950: {
                     slidesPerView: 3,
                     spaceBetween: 0,
                   },
-                  1400: {
+                  1300: {
                     slidesPerView: 4,
                     spaceBetween: 0,
                   },
-                  1900: {
+                  1600: {
                     slidesPerView: 5,
                     spaceBetween: 0,
                   },
                 }}
-                slideToClickedSlide={true}
-                slidesOffsetBefore={55}
-                navigation={true}
-                rewind={true}
-                pagination={{
-                  dynamicBullets: true,
-                }}
-                centerInsufficientSlides={true}
-                modules={[Navigation, Pagination]}
+                slidesOffsetBefore={45}
+                simulateTouch={true}
+                scrollbar={{ draggable: true }}
+                modules={[Scrollbar]}
               >
                 {recipe?.extendedIngredients?.map((ingredient, index) => (
                   <SwiperSlide key={"S" + index}>

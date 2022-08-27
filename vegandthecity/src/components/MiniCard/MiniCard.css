@@ -1,5 +1,5 @@
 .minicard-frame {
-  @apply w-56 mx-2 my-10 shadow-md rounded-xl bg-slate-100;
+  @apply w-60 mx-2 my-10 shadow-md rounded-xl bg-slate-100;
 }
 
 .minicard-image {

@@ -31,10 +31,10 @@ code {
 @import "./components/LoadingSpinner/LoadingSpinner.css";
 @import "./components/NavFootButtons/NavFootButtons.css";
 @import "./components/FavoritesPanel/FavoritesPanel.css";
+@import "./components/FavCard/FavCard.css";
 
 @import "swiper/css";
-@import "swiper/css/navigation";
-@import "swiper/css/pagination";
+@import "swiper/css/scrollbar";
 @import "swiper/css/autoplay";
 
 @tailwind utilities;

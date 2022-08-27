@@ -3,7 +3,7 @@
 }
 
 .recipes-searched-title {
-  @apply text-5xl font-extrabold w-full mt-8 text-center text-[#534666];
+  @apply text-4xl sm:text-5xl font-extrabold w-full mt-8 text-center text-[#534666];
 }
 
 .recipes-searched {

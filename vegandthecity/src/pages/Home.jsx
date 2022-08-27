@@ -16,11 +16,13 @@ export default function Home() {
   };
 
   return (
-    <div className="flex flex-col">
-      <Header />
-      <Hero scrollTo={scrollTo} />
-      <PopularRecipes />
-      <SearchBar ref={buttonRef} title={"Search Your Recipe"} />
+    <div className="relative min-h-screen">
+      <div className="flex flex-col pb-36">
+        <Header />
+        <Hero scrollTo={scrollTo} />
+        <PopularRecipes />
+        <SearchBar ref={buttonRef} title={"Search Your Recipe"} />
+      </div>
       <Footer />
     </div>
   );

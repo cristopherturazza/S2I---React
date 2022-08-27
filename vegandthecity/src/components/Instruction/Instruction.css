@@ -1,13 +1,13 @@
 .instruction-index {
-  @apply font-black text-5xl;
+  @apply font-black text-3xl sm:text-5xl;
 }
 
 .instruction-text {
-  @apply ml-8 font-normal text-xl w-10/12;
+  @apply mx-8 font-normal text-lg sm:text-xl w-10/12;
 }
 
 .instruction-box {
-  @apply flex flex-row  px-28 py-8 items-center;
+  @apply flex flex-row px-12 sm:px-28 py-8 items-center;
 }
 
 .dark {

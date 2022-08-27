@@ -1,0 +1,31 @@
+.favcard-frame {
+  @apply w-80 mx-8 my-10 shadow-md rounded-xl bg-slate-100;
+}
+
+.favcard-image {
+  @apply h-64 w-full object-fill rounded-t-xl;
+}
+
+.favcard-text-container {
+  @apply flex flex-col justify-start h-12;
+}
+
+.favcard-recipe-title {
+  @apply truncate px-6 pt-4 text-base font-extrabold text-[#534666];
+}
+
+.favcard-button-container {
+  @apply flex flex-row justify-between items-center mx-8 my-4 h-20;
+}
+
+.favcard-button {
+  @apply flex flex-row items-center transition-all px-4 py-4 text-sm cursor-pointer font-medium rounded-xl shadow-md hover:shadow-lg;
+}
+
+.dark-button {
+  @apply bg-[#138086] hover:bg-[#DC8665] text-white;
+}
+
+.light-button {
+  @apply bg-slate-50 text-[#534666];
+}

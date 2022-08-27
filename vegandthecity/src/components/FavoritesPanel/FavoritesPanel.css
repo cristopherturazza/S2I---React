@@ -1,13 +1,13 @@
 .favorites-container {
-  @apply flex flex-col items-start ml-20;
+  @apply flex flex-col items-start ml-12 sm:ml-20;
 }
 
 .favorites-title {
-  @apply text-5xl font-extrabold mt-12 text-[#534666];
+  @apply text-5xl font-extrabold mt-12 mb-4 text-[#534666];
 }
 
 .favorites-card-container {
-  @apply flex flex-col items-center;
+  @apply flex flex-col items-center mb-12;
 }
 
 .no-favorites {
@@ -15,9 +15,13 @@
 }
 
 .no-recipes {
-  @apply text-2xl font-semibold w-full mt-20 mb-20 text-center;
+  @apply text-2xl font-semibold w-full mt-20 mb-8 text-center;
 }
 
 .favorites-back-home {
-  @apply text-lg bg-[#138086] hover:bg-[#DC8665] transition-all px-4 py-2 text-white font-medium rounded-xl shadow-md hover:shadow-lg;
+  @apply flex flex-row items-center text-lg bg-[#138086] hover:bg-[#DC8665] transition-all px-4 py-2 text-white font-medium rounded-xl shadow-md hover:shadow-lg;
+}
+
+.favorites-card-list {
+  @apply flex flex-row;
 }

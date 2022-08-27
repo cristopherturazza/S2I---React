@@ -7,30 +7,30 @@
 }
 
 .hero-title {
-  @apply flex flex-col drop-shadow-lg text-white font-black mt-16 text-9xl items-center tracking-wider;
-}
-
-.hero-title-line {
-  line-height: 92px;
+  @apply flex flex-col drop-shadow-lg text-white font-black mt-16 text-7xl sm:text-9xl items-center tracking-wider;
 }
 
 .and-the-hero-container {
-  @apply flex flex-row text-[#ea7c50] drop-shadow-lg font-serif items-center pl-4 pb-3 text-5xl tracking-widest;
+  @apply flex flex-row text-[#ea7c50] drop-shadow-lg font-serif items-center pl-4 pb-3 text-2xl sm:text-5xl tracking-widest;
 }
 
 .hero-motto {
-  @apply font-handwritten text-5xl pt-6 pl-3 mb-4 drop-shadow-lg text-[#ea7c50] tracking-wide;
+  @apply font-handwritten text-3xl sm:text-5xl pt-2 sm:pt-6 pl-3 mb-4 drop-shadow-lg text-[#ea7c50] tracking-normal sm:tracking-wider;
 }
 
 .cta-button-container {
-  @apply flex justify-center items-center mt-8 mb-8;
+  @apply flex justify-center items-center mt-4 sm:mt-8 mb-12;
 }
 
 .cta-button {
-  @apply bg-[#138086] hover:bg-[#ea7c50] transition-all relative cursor-pointer text-base tracking-normal px-6 py-4 font-normal text-stone-50 rounded-xl shadow-lg;
+  @apply bg-[#138086] hover:bg-[#ea7c50] transition-all relative cursor-pointer text-base tracking-normal px-6 py-4 font-extrabold text-stone-50 rounded-xl shadow-lg;
 }
 
 .cta-button::after {
   @apply bg-[#ea7c50] absolute w-full h-full top-0 left-0 rounded-3xl shadow-xl shadow-[#ea7c5088] animate-pulse -z-10;
   content: "";
+}
+
+.hero-title-line {
+  @apply leading-[60px] sm:leading-[92px];
 }
