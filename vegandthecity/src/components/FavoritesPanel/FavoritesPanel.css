@@ -1,9 +1,9 @@
 .favorites-container {
-  @apply flex flex-col items-start ml-12 sm:ml-20;
+  @apply flex flex-col items-start sm:ml-20;
 }
 
 .favorites-title {
-  @apply text-5xl font-extrabold mt-12 mb-4 text-[#534666];
+  @apply text-4xl sm:text-5xl font-extrabold ml-12 mr-8 mt-12 mb-4 text-[#534666];
 }
 
 .favorites-card-container {
@@ -11,7 +11,7 @@
 }
 
 .no-favorites {
-  @apply flex flex-col mb-20;
+  @apply flex flex-col mb-20 ml-12;
 }
 
 .no-recipes {
@@ -23,5 +23,5 @@
 }
 
 .favorites-card-list {
-  @apply flex flex-row;
+  @apply flex flex-row flex-wrap ml-12;
 }

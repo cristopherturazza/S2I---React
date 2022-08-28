@@ -1,5 +1,5 @@
 .favcard-frame {
-  @apply w-80 mx-8 my-10 shadow-md rounded-xl bg-slate-100;
+  @apply w-72 sm:w-80 my-10 shadow-md rounded-xl mr-12 bg-slate-100;
 }
 
 .favcard-image {
@@ -19,7 +19,7 @@
 }
 
 .favcard-button {
-  @apply flex flex-row items-center transition-all px-4 py-4 text-sm cursor-pointer font-medium rounded-xl shadow-md hover:shadow-lg;
+  @apply flex flex-row items-center transition-all px-3 py-3 sm:px-4 sm:py-4 text-sm cursor-pointer font-medium rounded-xl shadow-md hover:shadow-lg;
 }
 
 .dark-button {

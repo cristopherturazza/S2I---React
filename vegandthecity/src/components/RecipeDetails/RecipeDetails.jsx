@@ -206,13 +206,11 @@ export default function RecipeDetails() {
               recipe.analyzedInstructions.length &&
               recipe.analyzedInstructions[0].steps.map((instr, index) => {
                 return (
-                  <>
-                    <Instruction
-                      key={index}
-                      number={instr.number}
-                      text={instr.step}
-                    />
-                  </>
+                  <Instruction
+                    key={index}
+                    number={instr.number}
+                    text={instr.step}
+                  />
                 );
               })}
             ;
@@ -223,21 +221,19 @@ export default function RecipeDetails() {
               {similarRecipes &&
                 similarRecipes.length &&
                 similarRecipes.map((recipe) => (
-                  <>
-                    <MiniCard
-                      key={recipe.id}
-                      id={recipe.id}
-                      image={
-                        "https://spoonacular.com/recipeImages/" +
-                        recipe.id +
-                        "-556x370." +
-                        recipe.imageType
-                      }
-                      title={recipe.title}
-                      servings={recipe.servings}
-                      hscore={recipe.healthScore}
-                    />
-                  </>
+                  <MiniCard
+                    key={recipe.id}
+                    id={recipe.id}
+                    image={
+                      "https://spoonacular.com/recipeImages/" +
+                      recipe.id +
+                      "-556x370." +
+                      recipe.imageType
+                    }
+                    title={recipe.title}
+                    servings={recipe.servings}
+                    hscore={recipe.healthScore}
+                  />
                 ))}
             </div>
           </div>

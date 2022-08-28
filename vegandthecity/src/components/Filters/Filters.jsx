@@ -36,7 +36,7 @@ export default function SearchFilters({
           <input
             type="checkbox"
             className="filter-checkbox"
-            onClick={(e) => handleDiet(e.target.checked ? true : false)}
+            onClick={(e) => handleDiet(!!e.target.checked)}
           />
         </div>
         <div className="single-filter-container">
@@ -44,7 +44,7 @@ export default function SearchFilters({
           <input
             type="checkbox"
             className="filter-checkbox"
-            onClick={(e) => handleDairy(e.target.checked ? true : false)}
+            onClick={(e) => handleDairy(!!e.target.checked)}
           />
         </div>
         <div className="single-filter-container">
@@ -52,7 +52,7 @@ export default function SearchFilters({
           <input
             type="checkbox"
             className="filter-checkbox"
-            onClick={(e) => handleGluten(e.target.checked ? true : false)}
+            onClick={(e) => handleGluten(!!e.target.checked)}
           />
         </div>
         <div className="single-filter-container">
