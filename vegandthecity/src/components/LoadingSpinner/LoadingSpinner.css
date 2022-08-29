@@ -17,5 +17,5 @@
 }
 
 .search-loader {
-  @apply flex w-full h-screen text-2xl justify-center font-medium items-start pt-8;
+  @apply flex w-full text-2xl justify-center font-medium items-start pt-8;
 }

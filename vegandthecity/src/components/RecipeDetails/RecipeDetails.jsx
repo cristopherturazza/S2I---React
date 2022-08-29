@@ -8,6 +8,7 @@ import { BsXDiamondFill, BsHeart, BsHeartFill } from "react-icons/bs";
 import Instruction from "../Instruction/Instruction";
 import MiniCard from "../MiniCard/MiniCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
+import NavFootButtons from "../NavFootButtons/NavFootButtons";
 import { FavoritesContext } from "../../context/FavoritesContextProvider";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -237,6 +238,7 @@ export default function RecipeDetails() {
                 ))}
             </div>
           </div>
+          <NavFootButtons />
         </>
       )}
       ;

@@ -1,5 +1,15 @@
+/* Fonts */
+
 @import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Parisienne&display=swap");
+
+/* Swiper.js Styles */
+
+@import "swiper/css";
+@import "swiper/css/scrollbar";
+@import "swiper/css/autoplay";
+
+/* Tailwind Essentials and custom CSS classes */
 
 @tailwind base;
 
@@ -19,10 +29,6 @@
 @import "./components/NavFootButtons/NavFootButtons.css";
 @import "./components/FavoritesPanel/FavoritesPanel.css";
 @import "./components/FavCard/FavCard.css";
-
-@import "swiper/css";
-@import "swiper/css/scrollbar";
-@import "swiper/css/autoplay";
 
 @tailwind utilities;
 

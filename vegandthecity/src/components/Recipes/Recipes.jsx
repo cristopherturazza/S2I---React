@@ -1,6 +1,5 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import { FavoritesContextProvider } from "../../context/FavoritesContextProvider";
 import { useParams } from "react-router-dom";
 import SearchFilters from "../Filters/Filters";
 import Card from "../Card/Card";

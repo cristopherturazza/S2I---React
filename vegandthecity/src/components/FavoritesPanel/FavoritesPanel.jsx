@@ -14,7 +14,7 @@ export default function FavoritesPanel() {
     setIsLoading(true);
     setTimeout(() => {
       setIsLoading(false);
-    }, 1000);
+    }, 500);
   }, []);
 
   return (
@@ -23,12 +23,12 @@ export default function FavoritesPanel() {
         <h1>My Favorite Recipes</h1>
       </div>
       <div className="favorites-card-container">
-        {isLoading === true && (
+        {isLoading && favRecipes.length === 0 && (
           <div className="search-loader">
             <LoadingSpinner />
           </div>
         )}
-        {favRecipes.length === 0 && (
+        {!isLoading && favRecipes.length === 0 && (
           <div className="no-favorites">
             <h3 className="no-recipes">No favorite recipes here.</h3>
             <Link to={"/"}>

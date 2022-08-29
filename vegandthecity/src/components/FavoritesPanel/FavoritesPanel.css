@@ -7,11 +7,11 @@
 }
 
 .favorites-card-container {
-  @apply flex flex-col items-center mb-12;
+  @apply flex flex-col items-center mb-12 ml-12;
 }
 
 .no-favorites {
-  @apply flex flex-col mb-20 ml-12;
+  @apply flex flex-col mb-20;
 }
 
 .no-recipes {

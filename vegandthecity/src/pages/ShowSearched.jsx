@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import SearchBar from "../components/SearchBar/SearchBar";
 import Recipes from "../components/Recipes/Recipes";
 import Header from "../components/Header/Header";

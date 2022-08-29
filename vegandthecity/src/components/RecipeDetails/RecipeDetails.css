@@ -26,11 +26,11 @@
 }
 
 .ribbon-container {
-  @apply flex flex-row flex-grow justify-center;
+  @apply flex flex-row flex-grow justify-end;
 }
 
 .recipe-side-ribbon {
-  @apply flex flex-col justify-end bg-gradient-to-tl from-[#094245] to-[#138086] w-full xl:w-40 mt-8 rounded-b-xl xl:rounded-r-xl xl:border-l xl:rounded-bl-none;
+  @apply flex flex-col justify-end bg-gradient-to-tl from-[#094245] to-[#138086] w-full xl:w-40 rounded-b-xl xl:rounded-r-xl xl:border-l xl:rounded-bl-none;
 }
 
 .recipe-add-favorite-container {
@@ -42,7 +42,7 @@
 }
 
 .recipe-instructions-container {
-  @apply py-8 ml-12 w-10/12;
+  @apply py-8 ml-12 sm:mx-28 w-10/12;
 }
 
 .instructions-list {
@@ -50,7 +50,7 @@
 }
 
 .recipe-photo {
-  @apply rounded-t-xl sm:rounded-l-xl object-fill;
+  @apply rounded-t-xl xl:rounded-l-xl xl:rounded-tr-none object-fill;
 }
 
 .ingredients-container {

@@ -1,5 +1,5 @@
 .filters-container {
-  @apply flex flex-col justify-center shadow-lg;
+  @apply flex flex-col w-full justify-center shadow-lg;
 }
 
 .filter-box {

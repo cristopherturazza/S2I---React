@@ -1,6 +1,5 @@
 import { useNavigate, useParams } from "react-router-dom";
 import { FaChevronCircleLeft, FaChevronCircleUp } from "react-icons/fa";
-import { useEffect } from "react";
 
 export default function NavFootButtons() {
   const navigate = useNavigate();
