@@ -69,12 +69,12 @@ export default function Recipes() {
     };
 
     searchRecipes(query);
-  }, [query]);
+  }, [query]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  // Filters applicatiojn
+  // Filters application
 
   useEffect(() => {
-    const applyFilters = (searchAPI) => {
+    const applyFilters = () => {
       let newRecipes = searchAPI;
 
       if (diet) {
@@ -96,7 +96,7 @@ export default function Recipes() {
     };
 
     applyFilters();
-  }, [diet, cooktime, dairy, gluten]);
+  }, [diet, cooktime, dairy, gluten]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="recipes-container">

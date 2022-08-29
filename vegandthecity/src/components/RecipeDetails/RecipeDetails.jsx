@@ -65,7 +65,7 @@ export default function RecipeDetails() {
     favRecipes.find((fav) => fav.id === id)
       ? setFavorite(true)
       : setFavorite(false);
-  }, [location]);
+  }, [location]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="recipe-container">
