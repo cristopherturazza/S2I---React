@@ -10,21 +10,31 @@ export default function Footer() {
         </small>
       </div>
       <div className="footer-links-container">
-        <a href="https://www.instagram.com/christurazza" target="_blank">
+        <a
+          href="https://www.instagram.com/christurazza"
+          target="_blank"
+          rel="noreferrer"
+        >
           <FaInstagramSquare className="footer-link" />
         </a>
         <a
           href="https://www.linkedin.com/in/cristopher-turazza-0863a026/"
           target="_blank"
+          rel="noreferrer"
         >
           <FaLinkedin className="footer-link" />
         </a>
-        <a href="https://github.com/cristopherturazza" target="_blank">
+        <a
+          href="https://github.com/cristopherturazza"
+          rel="noreferrer"
+          target="_blank"
+        >
           <FaGithubSquare className="footer-link" />
         </a>
         <a
           href="https://talent.start2impact.it/profile/cristopher-turazza"
           target="_blank"
+          rel="noreferrer"
         >
           <IoRocketSharp className="footer-link" />
         </a>
