@@ -74,7 +74,7 @@ export default function Recipes() {
   // Filters applicatiojn
 
   useEffect(() => {
-    const applyFilters = () => {
+    const applyFilters = (searchAPI) => {
       let newRecipes = searchAPI;
 
       if (diet) {
