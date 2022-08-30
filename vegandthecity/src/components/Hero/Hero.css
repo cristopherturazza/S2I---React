@@ -3,7 +3,7 @@
 }
 
 .hero-text {
-  @apply flex flex-col justify-center items-center w-full bg-fixed bg-cover bg-bottom bg-[url('/src/img/veggie-mobile-background-overlayed.jpg')] lg:bg-[url('/src/img/veggie-background-overlayed.jpg')];
+  @apply flex flex-col justify-center items-center w-full lg:bg-fixed bg-cover bg-bottom bg-[url('/src/img/veggie-mobile-background-overlayed.jpg')] lg:bg-[url('/src/img/veggie-background-overlayed.jpg')];
 }
 
 .hero-title {
