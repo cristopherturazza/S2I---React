@@ -17,36 +17,6 @@ export default function Recipes() {
 
   const { query } = useParams();
 
-  // fetch recipes data
-
-  const searchRecipes = async (query) => {
-    setIsLoading(true);
-    recipes.length = 0;
-    try {
-      //fetch searched recipes ids
-
-      const responseSearch = await axios.get(
-        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&number=6&query=${query}&diet=vegetarian`
-      );
-      const data = responseSearch.data.results;
-      const recipesId = data.map((recipe) => recipe.id).toString();
-
-      //fetch full data recipes
-
-      const responseRecipes = await axios.get(
-        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${recipesId}`
-      );
-
-      setRecipes(responseRecipes.data);
-      setSearchAPI(responseRecipes.data);
-    } catch (error) {
-      console.log(error);
-    }
-    setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-  };
-
   //link filter state data
 
   const handleDiet = (diet) => {
@@ -67,8 +37,38 @@ export default function Recipes() {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // fetch recipes data
+
+    const searchRecipes = async (query) => {
+      setIsLoading(true);
+      setRecipes([]);
+      try {
+        //fetch searched recipes ids
+
+        const responseSearch = await axios.get(
+          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&number=6&query=${query}&diet=vegetarian`
+        );
+        const data = responseSearch.data.results;
+        const recipesId = data.map((recipe) => recipe.id).toString();
+
+        //fetch full data recipes
+
+        const responseRecipes = await axios.get(
+          `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${recipesId}`
+        );
+
+        setRecipes(responseRecipes.data);
+        setSearchAPI(responseRecipes.data);
+      } catch (error) {
+        console.log(error);
+      }
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 1000);
+    };
+
     searchRecipes(query);
-    // eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {
