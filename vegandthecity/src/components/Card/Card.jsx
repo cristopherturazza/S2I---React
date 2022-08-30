@@ -1,10 +1,15 @@
 import { Link } from "react-router-dom";
 import { BiRestaurant, BiHeart } from "react-icons/bi";
+import noImage from "../../img/no-image.png";
 
 export default function Card(props) {
   return (
     <div className="card-frame" key={props.id}>
-      <img src={props.image} alt={props.title} className="card-image" />
+      {props.image ? (
+        <img src={props.image} alt={props.title} className="card-image" />
+      ) : (
+        <img src={noImage} alt={props.title} className="card-image max-w-lg" />
+      )}
       <div className="card-text-container">
         <h3 className="card-recipe-title"> {props.title} </h3>
         <h4 className="card-recipe-details">

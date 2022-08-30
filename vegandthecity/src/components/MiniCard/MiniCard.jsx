@@ -1,9 +1,18 @@
 import { Link } from "react-router-dom";
+import noImage from "../../img/no-image.png";
 
 export default function Card(props) {
   return (
     <div className="minicard-frame" key={props.id}>
-      <img src={props.image} alt={props.title} className="minicard-image" />
+      {props.image ? (
+        <img src={props.image} alt={props.title} className="minicard-image" />
+      ) : (
+        <img
+          src={noImage}
+          alt={props.title}
+          className="minicard-image max-w-lg"
+        />
+      )}
       <div className="minicard-text-container">
         <h3 className="minicard-recipe-title"> {props.title} </h3>
       </div>

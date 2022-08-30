@@ -10,6 +10,7 @@ import MiniCard from "../MiniCard/MiniCard";
 import LoadingSpinner from "../LoadingSpinner/LoadingSpinner";
 import NavFootButtons from "../NavFootButtons/NavFootButtons";
 import { FavoritesContext } from "../../context/FavoritesContextProvider";
+import noImage from "../../img/no-image.png";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Scrollbar } from "swiper";
@@ -82,11 +83,19 @@ export default function RecipeDetails() {
         <>
           <h1 className="recipe-title">{recipe.title}</h1>
           <div className="recipe-top-section">
-            <img
-              className="recipe-photo"
-              src={recipe.image}
-              alt={recipe.title}
-            />
+            {recipe.image ? (
+              <img
+                className="recipe-photo"
+                src={recipe.image}
+                alt={recipe.title}
+              />
+            ) : (
+              <img
+                className="recipe-photo max-w-lg"
+                src={noImage}
+                alt={recipe.title}
+              />
+            )}
             <div className="recipe-info">
               <span className="recipe-info-lines">
                 {" "}
