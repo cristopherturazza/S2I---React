@@ -15,7 +15,7 @@
 }
 
 .hero-motto {
-  @apply font-handwritten text-4xl sm:text-5xl pt-2 sm:pt-6 pl-3 mb-4 drop-shadow-lg text-[#ea7c50] tracking-normal sm:tracking-wider;
+  @apply font-handwritten text-4xl sm:text-5xl pt-2 sm:pt-6 pl-3 mb-4 drop-shadow-lg text-[#ea7c50] tracking-normal;
 }
 
 .cta-button-container {
@@ -27,7 +27,7 @@
 }
 
 .cta-button::after {
-  @apply bg-[#ea7c50] absolute w-full h-full top-0 left-0 rounded-3xl shadow-xl shadow-[#ea7c5088] animate-pulse -z-10;
+  @apply bg-[#ea7c50] absolute w-full h-full top-0 left-0 rounded-3xl shadow-xl shadow-[#ea7c50BB] animate-pulse -z-10;
   content: "";
 }
 

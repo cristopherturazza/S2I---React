@@ -7,5 +7,5 @@
 }
 
 .recipes-searched {
-  @apply justify-evenly flex flex-row flex-wrap mt-4 px-16 max-w-[1470px];
+  @apply justify-evenly flex flex-row flex-wrap mt-4 mx-16 max-w-[1340px];
 }
