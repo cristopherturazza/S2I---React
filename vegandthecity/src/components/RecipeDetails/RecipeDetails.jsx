@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import axios from "axios";
-import { useParams, useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Ingredient from "../Ingredient/Ingredient";
 import { BiRestaurant, BiHeart, BiTimer, BiFoodMenu } from "react-icons/bi";
 import { GiMilkCarton } from "react-icons/gi";
@@ -61,7 +61,7 @@ export default function RecipeDetails() {
   }, [id]);
 
   useEffect(() => {
-    favRecipes.find((fav) => fav.id == id)
+    favRecipes.find((fav) => fav.id === Number(id))
       ? setFavorite(true)
       : setFavorite(false);
   }, [favRecipes, id]);

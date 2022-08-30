@@ -65,35 +65,36 @@ export default function Recipes() {
     setGluten(gluten);
   };
 
-  const applyFilters = () => {
-    let newRecipes = searchAPI;
-
-    if (diet) {
-      newRecipes = newRecipes.filter((recipe) => recipe.vegan === true);
-    }
-    if (cooktime <= 120) {
-      newRecipes = newRecipes.filter(
-        (recipe) => recipe.readyInMinutes <= cooktime
-      );
-    }
-    if (dairy) {
-      newRecipes = newRecipes.filter((recipe) => recipe.dairyFree === true);
-    }
-    if (gluten) {
-      newRecipes = newRecipes.filter((recipe) => recipe.glutenFree === true);
-    }
-
-    setRecipes(newRecipes);
-  };
-
   useEffect(() => {
     window.scrollTo(0, 0);
     searchRecipes(query);
+    // eslint-disable-next-line
   }, [query]);
 
   useEffect(() => {
+    const applyFilters = () => {
+      let newRecipes = searchAPI;
+
+      if (diet) {
+        newRecipes = newRecipes.filter((recipe) => recipe.vegan === true);
+      }
+      if (cooktime <= 120) {
+        newRecipes = newRecipes.filter(
+          (recipe) => recipe.readyInMinutes <= cooktime
+        );
+      }
+      if (dairy) {
+        newRecipes = newRecipes.filter((recipe) => recipe.dairyFree === true);
+      }
+      if (gluten) {
+        newRecipes = newRecipes.filter((recipe) => recipe.glutenFree === true);
+      }
+
+      setRecipes(newRecipes);
+    };
+
     applyFilters();
-  }, [diet, cooktime, dairy, gluten]);
+  }, [diet, cooktime, dairy, gluten, searchAPI]);
 
   return (
     <div className="recipes-container">
