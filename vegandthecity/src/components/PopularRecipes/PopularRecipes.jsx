@@ -22,7 +22,7 @@ export default function PopularRecipes() {
     }
     setTimeout(() => {
       setIsLoading(false);
-    }, 1500);
+    }, 1000);
   };
 
   useEffect(() => {

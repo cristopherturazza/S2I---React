@@ -23,5 +23,5 @@
 }
 
 .favorites-card-list {
-  @apply flex flex-row flex-wrap ml-12;
+  @apply flex flex-row flex-wrap;
 }

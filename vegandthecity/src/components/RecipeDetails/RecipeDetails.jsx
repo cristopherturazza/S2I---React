@@ -22,7 +22,30 @@ export default function RecipeDetails() {
   const { favRecipes, addFavRecipe, removeFavRecipe } =
     useContext(FavoritesContext);
   const { id } = useParams();
-  const location = useLocation();
+
+  const fetchRecipe = async (id) => {
+    setIsLoading(true);
+    try {
+      // fetch recipe main data
+
+      const response = await axios.get(
+        `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
+      );
+      setRecipe(response.data);
+
+      // fetch similar recipes by id
+
+      const similar = await axios.get(
+        `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}&number=4`
+      );
+      setSimilarRecipes(similar.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
 
   const handleFavorite = () => {
     favorite
@@ -32,40 +55,16 @@ export default function RecipeDetails() {
   };
 
   // fetch recipes on loading
-
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    const fetchRecipe = async (id) => {
-      setIsLoading(true);
-      try {
-        // fetch recipe main data
-
-        const response = await axios.get(
-          `https://api.spoonacular.com/recipes/${id}/information?apiKey=${process.env.REACT_APP_API_KEY}&includeNutrition=false`
-        );
-        setRecipe(response.data);
-
-        // fetch similar recipes by id
-
-        const similar = await axios.get(
-          `https://api.spoonacular.com/recipes/${id}/similar?apiKey=${process.env.REACT_APP_API_KEY}&number=4`
-        );
-        setSimilarRecipes(similar.data);
-      } catch (error) {
-        console.log(error);
-      }
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1500);
-    };
-
     fetchRecipe(id);
+  }, [id]);
 
-    favRecipes.find((fav) => fav.id === id)
+  useEffect(() => {
+    favRecipes.find((fav) => fav.id == id)
       ? setFavorite(true)
       : setFavorite(false);
-  }, [location]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [favRecipes, id]);
 
   return (
     <div className="recipe-container">

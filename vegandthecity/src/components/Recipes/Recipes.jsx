@@ -17,6 +17,36 @@ export default function Recipes() {
 
   const { query } = useParams();
 
+  // fetch recipes data
+
+  const searchRecipes = async (query) => {
+    setIsLoading(true);
+    recipes.length = 0;
+    try {
+      //fetch searched recipes ids
+
+      const responseSearch = await axios.get(
+        `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&number=6&query=${query}&diet=vegetarian`
+      );
+      const data = responseSearch.data.results;
+      const recipesId = data.map((recipe) => recipe.id).toString();
+
+      //fetch full data recipes
+
+      const responseRecipes = await axios.get(
+        `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${recipesId}`
+      );
+
+      setRecipes(responseRecipes.data);
+      setSearchAPI(responseRecipes.data);
+    } catch (error) {
+      console.log(error);
+    }
+    setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+  };
+
   //link filter state data
 
   const handleDiet = (diet) => {
@@ -35,68 +65,35 @@ export default function Recipes() {
     setGluten(gluten);
   };
 
-  // fetch recipes data
+  const applyFilters = () => {
+    let newRecipes = searchAPI;
+
+    if (diet) {
+      newRecipes = newRecipes.filter((recipe) => recipe.vegan === true);
+    }
+    if (cooktime <= 120) {
+      newRecipes = newRecipes.filter(
+        (recipe) => recipe.readyInMinutes <= cooktime
+      );
+    }
+    if (dairy) {
+      newRecipes = newRecipes.filter((recipe) => recipe.dairyFree === true);
+    }
+    if (gluten) {
+      newRecipes = newRecipes.filter((recipe) => recipe.glutenFree === true);
+    }
+
+    setRecipes(newRecipes);
+  };
 
   useEffect(() => {
     window.scrollTo(0, 0);
-
-    const searchRecipes = async (query) => {
-      setIsLoading(true);
-      recipes.length = 0;
-      try {
-        //fetch searched recipes ids
-
-        const responseSearch = await axios.get(
-          `https://api.spoonacular.com/recipes/complexSearch?apiKey=${process.env.REACT_APP_API_KEY}&number=6&query=${query}&diet=vegetarian`
-        );
-        const data = responseSearch.data.results;
-        const recipesId = data.map((recipe) => recipe.id).toString();
-
-        //fetch full data recipes
-
-        const responseRecipes = await axios.get(
-          `https://api.spoonacular.com/recipes/informationBulk?apiKey=${process.env.REACT_APP_API_KEY}&ids=${recipesId}`
-        );
-
-        setRecipes(responseRecipes.data);
-        setSearchAPI(responseRecipes.data);
-      } catch (error) {
-        console.log(error);
-      }
-      setTimeout(() => {
-        setIsLoading(false);
-      }, 1500);
-    };
-
     searchRecipes(query);
-  }, [query]); // eslint-disable-line react-hooks/exhaustive-deps
-
-  // Filters application
+  }, [query]);
 
   useEffect(() => {
-    const applyFilters = () => {
-      let newRecipes = searchAPI;
-
-      if (diet) {
-        newRecipes = newRecipes.filter((recipe) => recipe.vegan === true);
-      }
-      if (cooktime <= 120) {
-        newRecipes = newRecipes.filter(
-          (recipe) => recipe.readyInMinutes <= cooktime
-        );
-      }
-      if (dairy) {
-        newRecipes = newRecipes.filter((recipe) => recipe.dairyFree === true);
-      }
-      if (gluten) {
-        newRecipes = newRecipes.filter((recipe) => recipe.glutenFree === true);
-      }
-
-      setRecipes(newRecipes);
-    };
-
     applyFilters();
-  }, [diet, cooktime, dairy, gluten]); // eslint-disable-line react-hooks/exhaustive-deps
+  }, [diet, cooktime, dairy, gluten]);
 
   return (
     <div className="recipes-container">
