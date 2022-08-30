@@ -15,7 +15,7 @@
 }
 
 .recipe-info {
-  @apply flex flex-col m-8 sm:ml-16 pt-6;
+  @apply flex flex-col m-8 sm:ml-16 lg:pt-6;
 }
 
 .recipe-info-lines {
